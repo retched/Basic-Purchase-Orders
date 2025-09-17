@@ -12,7 +12,7 @@ _Released February 1, 2025 for ZenCart 1.5.8._
 
 ### Version/Release History
 
-- 2.1.0: [Download]()  
+- 2.1.0: [Download](https://github.com/retched/zenPurchaseOrders/releases/tag/v2.1.0)  
  Visual changes to the module. Added fields to the configuration, as well as added instructions on confirmation. Uses group functions in addition to discount pricing.
 - 2.0.0: [Download](https://www.zen-cart.com/downloads.php?do=file&id=1356)
  This is the last released version of this with edits from carlwhat.
