@@ -30,7 +30,7 @@ Simply copy the files from the archive into the matching directories. If you hav
 ## Uninstallation
 
 1. Log in to your Zen-Cart admin page and under 'Modules', select 'Payment'
-2. Remove Purchase Orders
+2. Remove Purchase Orders  
    - This will also delete and unassign, if necessary, the group created during install.
 3. Delete the file purchaseorders.php from ./includes/languages/english/modules/payment/purchaseorders.php
 4. Delete the file purchaseorders.php from ./includes/modules/payment/purchaseorders.php
