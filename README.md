@@ -6,7 +6,7 @@ The module won't accept the physical purchase order, but rather it will prompt t
 
 ## Module Version
 
-- Latest Release: [2.1.0](https://www.zen-cart.com/downloads.php?do=file&id=1356)  
+- Latest Release: [2.0.0](https://www.zen-cart.com/downloads.php?do=file&id=1356)  
 _Released February 1, 2025 for ZenCart 1.5.8._
 - Next Version Number: ???
 
@@ -14,20 +14,21 @@ _Released February 1, 2025 for ZenCart 1.5.8._
 
 - 2.0.0: [Download](https://www.zen-cart.com/downloads.php?do=file&id=1356)
   This is the last released version of this with edits from carlwhat.
-  _I'm not the original module writing, I'm just using this repository to track changes._
+  _I'm not the original module writer; I'm just using this repository to track changes._
 
 
 ## Additional Links
 
+- [retched's Repository](https://github.com/retched/Basic-Purchase-Orders/)
 - [ZenCart Plugins Directory Listing](https://www.zen-cart.com/downloads.php?do=file&id=1356) (or use the Releases function on the GitHub repository)
 
 ## Setup, Install, and Upgrading
 
-Simply copy the files from the archive into the matching directories. If you already have installed a prior version, overwrite with this file. It will handle upgrading when complete.
+Simply copy the files from the archive into the matching directories. If you have already installed a prior version, overwrite it with the contents of the archive file. It will handle upgrading when complete.
 
 ## Uninstallation
 
-1. Login into your Zen-Cart admin page and under 'Modules', select 'Payment'
+1. Log in to your Zen-Cart admin page and under 'Modules', select 'Payment'
 2. Remove Purchase Orders
    - This will also delete and unassign, if necessary, the group created during install.
 3. Delete the file purchaseorders.php from ./includes/languages/english/modules/payment/purchaseorders.php
@@ -35,7 +36,7 @@ Simply copy the files from the archive into the matching directories. If you alr
 
 ## Contributions
 
-Contributions are welcome. Again, I'm not the original author of this module. I just provided a merger between this version of purchaese orders and the original one provided on the forum. This module is broadly fully completed with very few tweaks necessary.
+Contributions are welcome. Again, I'm not the original author of this module. I just provided a merger between this version of purchase orders and the original one provided on the forum. This module is broadly fully completed with very few tweaks necessary.
 
 ## Frequently Asked Questions
 
@@ -43,7 +44,7 @@ This won't answer all the questions you may have, but it may answer some that I 
 
 ### What version of ZenCart does this module support?
 
-Only ZenCart versions 1.5.8 and onward. This module requires the customers group and group pricing functions which were only available ZenCArt 1.5.8 and onward.
+Only ZenCart versions 1.5.8 and onward. This module requires the customer group and group pricing functions, which were only available in ZenCart 1.5.8 and onward.
 
 |               |  Standard Install  |
 |---------------|:------------------:|
@@ -56,21 +57,21 @@ Only ZenCart versions 1.5.8 and onward. This module requires the customers group
 | ZenCart 2.1.0 | :white_check_mark: |
 
 - :white_check_mark: = Fully supported
-- :x: = Not supported
+- :x: = Not supported (does not support the customer groups functionality)
 
 ### I don't see the option available?
 
-Make sure that you are logged in as a user that is a part of the group selected in the admin area or is a part of a Pricing Group with a name that starts with PO_. If you delete the group that comes with the module, make sure to either reselect a group or make a new one. (If you leave the selection as "-- Any --", ANYONE can use the moddule to send a purchase order.)
+Make sure that you are logged in as a user that is a part of the group selected in the admin area or is a part of a Pricing Group with a name that starts with PO_. If you delete the customer group that comes with the module, make sure to either reselect a group or make a new one. (If you leave the selection as "-- Any --", ANYONE can use the module to send a purchase order.)
 
 ### How does this module actually work?
 
-During checkout as a registered user, if the user is a part of the group authorized to use Purchase Orders, it will appear as a payment option. The cart will prompt for the Purchase Order number (not optional) and will attach that number onto the order. It will arrive in the admin area waiting for confirmation. You can use operating procedure you wish with the treatment of the order. It is suggested that you do not ship the order until you have confirmed payment details with the order.
+During checkout as a registered user, if the user is a part of the group authorized to use Purchase Orders, it will appear as a payment option. The cart will prompt for the Purchase Order number (not optional) and will attach that number to the order. It will arrive in the admin area, waiting for confirmation. You can use whatever operating procedure you wish for the treatment of the order. It is suggested that you do not ship the order until you have confirmed payment details with the order.
 
 ### 
 
 ## Known Limitations/Issues
 
-- The reason why the "-- Any --" option works for unassigned customers is because all customers are a part of group `0` which is what is represented by `-- Any --` in ZenCart. This is an innate ZenCart function and should not be overwritten or taken lightly. For that reason, if you would like to use Group Pricing instead of Customer Groups, leave the default Customer Group alone and do not delete it. If you uninstall the module, the group "Purchoase Orders: Enabled" will also be deleted too.
+- The reason why the "-- Any --" option works for unassigned customers is that all customers are a part of group `0`, which is what is represented by `-- Any --` in ZenCart. This is an innate ZenCart function and should not be overwritten or taken lightly. For that reason, if you would like to use Group Pricing instead of Customer Groups, leave the default Customer Group alone and do not delete it. If you uninstall the module, the group "Purchase Orders: Enabled" will also be deleted.
 
 ## Credits
 
