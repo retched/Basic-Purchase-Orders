@@ -6,8 +6,8 @@ The module won't accept the physical purchase order, but rather it will prompt t
 
 ## Module Version
 
-- Latest Release: [2.0.0](https://www.zen-cart.com/downloads.php?do=file&id=1356)  
-_Released February 1, 2025 for ZenCart 1.5.8._
+- Latest Release: [2.1.0](https://www.zen-cart.com/downloads.php?do=file&id=1356)  
+_Released February 1, 2025 for ZenCart 1.5.8, 2.0.0, 2.1.0._
 - Next Version Number: ???
 
 ### Version/Release History
