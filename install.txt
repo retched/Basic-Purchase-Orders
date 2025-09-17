@@ -1,7 +1,7 @@
 ===============================
-Date: January 17, 2012
+Date: September 15, 2025
 Purchase Orders Basic
-Version 1.0c
+Version 2.1.0
 License: GNU General Public License
 Copyright 2012, All Rights Reserved.
 
@@ -11,6 +11,9 @@ Support: http://www.zen-cart.com/forum/showthread.php?t=191232
 modified by carlWhat.
 https://mxworks.cc
 2/1/2025
+
+modified by retched
+9/15/2025
 
 COMMENTS:  After Zen-Cart released version 1.5.x my client insisted on a purchase order program.  I created this version which has been tested
 with Zen-Cart v1.5.x.  This has not been tested with version 1.3.9x, but should work.  
@@ -33,43 +36,64 @@ program grants release of the author for any damages real or virtual.
 
 Instructions for use!
 ========================
-you need to go somewhere like here:
 
-https://zcdev.com/admin/index.php?cmd=group_pricing
+Install the module per the instructions found in the INSTALL section below.
 
-and ensure you have a group name that starts with:
+**NEW** Starting in 2.1.0, you can either choose to assign customers to a PRICING group which begins with PO_ OR you can create a CUSTOMER group (of any name) and explicitly name that CUSTOMER group as having permission to use purchase orders.
 
-PO_
+Choose to use either Group Pricing or Customer Groups:
 
-and then you need to ensure that you set up the customer in that group for the PO option to be active.
+- To use Group Pricing (if you were using v2.0.0, you were using this):
+    - visit your admin area and navigate to Customers > Group Pricing and click "Insert". 
+    - name your group whatever you like but it MUST start with PO_ . (You don't need to give a % Discount and can set that to 0, if you wish.)
+    - NOTE: Customers can only belong to *one* __pricing group__.
 
-and they need to be buying physical products.
+- To use Customer Groups:
+    - visit your admin area and navigate to Customers > Customer Groups and click "Insert".
+    - name your group whatever you would like and be sure to provide a description. (For customer groups, you do not need to begin the name with PO_ .)
+    - NOTE: Customers can belong to multiple __customer groups__.
+    - A Customer Group titled "Purchase Orders: Enabled" will be created on install/upgrade. If you plan on using Group Pricing, leave this option alone and do NOT delete this group. If you change the option to 
+
+The module will be enabled only for customers who either are assigned to the group chosen OR who are a part of the Group Pricing with the name PO_ at the front.
+
+Once you have finished, start assigning your customers to the chosen group. (You have to do this manually by visiting each customer and adding them to the desired group, either Customer or Pricing.)
+
+Finally, visit the Modules > Payment list and choose "Purchase Order" (be sure to use the one that is labeled "purchaseorders"). Configure the module as desired and if you are using customer groups, select the group that you wish to enable purchase orders for. Be sure to confirm and save.
+
+NOTE: If you are upgrading from 2.0.0, no main functionality has been changed. You will just now have an additional option available to assign groups. Be sure to check the configurations as well.
 
 =================================
 CHANGE LOG
 
-2/1/2025
+v2.1.0 (Paul Williams - retched)
+* moderate - 9/15/2025 (v2.1.0)
+- modified to use zencart's customer group settings and allow you to choose which group a customer must belong to in order to use the module (if you're upgrading, the field will be added automatically). Guest checkouts still cannot use the module.
+- Added more descriptive instructions to payment notes.
+- Added new "Make payable to:", "Email address to receive POs", "Store PO Fax Number". On install/upgrade will default to their equivalent in the main store.
+- Changed the message on checkout confirmation. A bit more colorful and spaced out. Also attached the instructions to payout tot he new order status 
+
+v2.0.0  (carlWhat)
+* major - 2/1/2025
 - modified for use with v158 and up to v210
 - makes use of new language file defines.
 
-
 *minor - 1/29/2012  Updated the language file as there was a typo.
 
-v1.0d
-*minor - 2/9/2012  Added the additional instructions in the email to the customer. 
-
-v1.1.a
-*moderate - 2/10/2012  added the feature to allow admin to select which customers can see the purchase order option.  This was added by request. This feature is based upon the work of the software guys "Invoice".
-
-
 v1.1.b (Ray Otterman -  Ray-The-Otter)
-*tiny - 17/11/2012 corrected typo on line 81 of \includes\modules\payment\purchaseorder.php of 
+*tiny - 11/17/2012 corrected typo on line 81 of \includes\modules\payment\purchaseorder.php of 
 '    error_message = error_message + "' . MODULE_PAYMENT_PURCHASEORDER_TEXT_JS_PPURCHASEORDER_NUMBER . '";' . "\n" .
 to 
 
 '    error_message = error_message + "' . MODULE_PAYMENT_PURCHASEORDER_TEXT_JS_PURCHASEORDER_NUMBER . '";' . "\n" .
 
 As this typeo was resulting in code being displayed in the JS popup warning and not the tex in the 'defines' statement 
+
+v1.1.a
+*moderate - 2/10/2012  added the feature to allow admin to select which customers can see the purchase order option.  This was added by request. This feature is based upon the work of the software guys "Invoice".
+
+v1.0d
+*minor - 2/9/2012  Added the additional instructions in the email to the customer. 
+
 
 =================================
 
@@ -79,28 +103,39 @@ INSTALL
 =================================
 If you installed v1.0d and are upgrading to v1.1a just upload the files to the server.  No changes will be required under setup.  You will be required to insert groups under "Admin -> Customers -> Group Pricing"
 
+If you installed v2.0.0 and are upgrading to v2.1.0, again just upload the files to the server. The module will add in the changes necessary.
 
-NOTE - 	NO FILES ARE CHANGED INSTALLING THIS MODULE!
-			NO CHANGES TO THE DATABASE ARE PERFORMED!
+
+NOTE - 	NO CORE FILES ARE CHANGED INSTALLING THIS MODULE!
+        NO CHANGES TO THE DATABASE ARE PERFORMED! (besides configuration keys)
 
 STEP 1 - 	IT IS ALWAYS ADVISABLE TO BACKUP YOUR SITE BEFORE INSTALLING OR MAKING ANY CHANGES TO YOUR STORE.  
-			You can read the faq's on the Zen-Cart Site for instructions on backing up your database or you can use the database backup module.
+            You can read the faq's on the Zen-Cart Site for instructions on backing up your database or you can use the database backup module.
 
 STEP 2 -	Upload the files using your FTP program.  
-			For most FTP clients the directory structure of the /includes directory should be preserved, and the files should "fall" into their proper places.  
-			If your FTP client isn't capable of this, you might have to manually place each file according to where they appear in this mod.
+            For most FTP clients the directory structure of the /includes directory should be preserved, and the files should "fall" into their proper places.  
+            If your FTP client isn't capable of this, you might have to manually place each file according to where they appear in this mod.
 
 STEP 3 -	Login into your Zen-Cart "Admin -> Modules -> Payments"
 
 STEP 4 - 	Install Purchase Orders
 
-STEP 5 - 	Go to "Admin -> Customers -> Group Pricing" and press "Insert".  
-			Add a group called "PO_" followed by group title example "PO_Group1", then add whatever discount you want to grant.  ("0" is an option)
-			You may add additional groups with the prefix "PO_" at different discount levels if so desired; all of them will be able to use purchase orders.
-			*Note if you added a group discount you should make sure that group discount is activated in "Admin -> Modules -> Order Total"
+Pick which method of grouping you want to use (group pricing or customer groups). For Group Pricing, go to Step 5. For Customer Groups, go to Step 6:
 
-STEP 6 - 	Go to "Admin -> Customers -> Customers" edit which customers you would like to offer purchase orders to.
-			This can be found under "options" located at the bottom of the customer edit screen.
+Group Pricing:
+STEP 5 - 	Go to "Admin -> Customers -> Group Pricing" and press "Insert".  
+            Add a group called "PO_" followed by group title example "PO_Group1", then add whatever discount you want to grant.  ("0" is an option)
+            You may add additional groups with the prefix "PO_" at different discount levels if so desired; all of them will be able to use purchase orders.
+            *Note if you added a group discount you should make sure that group discount is activated in "Admin -> Modules -> Order Total"
+            Proceed to STEP 7
+
+Customer Groups:
+STEP 6 -    Go to "Admin -> Customers -> Customer Groups" and press "Insert".  
+            Add a group of any name. (No need for a prefix.) You many want to give the group a description.
+            Be sure to visit the module under Modules -> Payment and modify the settings to select this group. WARNING: Do NOT leave this as "Any" unless you're OK with any customer potentially using Purchase Orders. (That is, if you leave the selection as "-- Any --", then ANY customer (even those not a part of a group) will be able to use Purchase Orders.) To allow only an explicitly defined group to use purchase orders, you MUST create that group pursuant to this step. A group will be created on the update/install of the module automatically named "Purchase Orders: Enabled". Even if you are using Group Pricing, leave this as is. Proceed to STEP 7.
+
+STEP 7 - 	Go to "Admin -> Customers -> Customers" edit which customers you would like to offer purchase orders to.
+            This can be found under "options" located at the bottom of the customer edit screen.
 
 
 UN-INSTALL
@@ -109,6 +144,7 @@ UN-INSTALL
 STEP 1 - 	Login into your Zen-Cart admin page and under 'Modules', select 'Payment'
 
 STEP 2 -	Remove Purchase Orders
+            * This will also delete and unassign, if necessary, the group created during install.
 
 STEP 3 - 	Delete the file purchaseorders.php from ./includes/languages/english/modules/payment/purchaseorders.php
 
