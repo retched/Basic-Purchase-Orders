@@ -22,6 +22,7 @@ _Released February 1, 2025 for ZenCart 1.5.8._
 
 - [retched's Repository](https://github.com/retched/Basic-Purchase-Orders/)
 - [ZenCart Plugins Directory Listing](https://www.zen-cart.com/downloads.php?do=file&id=1356) (or use the Releases function on the GitHub repository)
+- [Original Support Thread](https://www.zen-cart.com/showthread.php/191232-Purchase-Order-Basic/)
 
 ## Setup, Install, and Upgrading
 
